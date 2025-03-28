@@ -25,6 +25,12 @@ class Card:
     def __repr__(self):
         return self.__str__() # repr is same as str
 
+    def __eq__(self, other):
+        return self.rank == other.rank
+
+    def __lt__(self, other):
+        return self.RANKS.index(self.rank) < self.RANKS.index(other.rank)
+
 # c1 = Card("7", "♥️")
 # print(c1)
 #
@@ -46,6 +52,7 @@ class Deck:
     def __str__(self):
         return str(self._cards)
 
+
     def shuffle(self):
         random.shuffle(self._cards)
 
@@ -59,3 +66,4 @@ if __name__ == "__main__":
     print(deck)
     print(deck.deal())
     print(deck)
+
